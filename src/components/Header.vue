@@ -50,7 +50,7 @@
 defineProps({
   logoImage: {
     type: String,
-    default: "/src/assets/images/logo.png",
+    default: "/assets/images/logo.png",
   },
 });
 import "../assets/styles/Header.css";

@@ -15,7 +15,7 @@
 defineProps({
   profileImage: {
     type: String,
-    default: "/src/assets/images/profile.JPG", // Caminho padrão da imagem
+    default: "/assets/images/profile.JPG", // Caminho padrão da imagem
   },
   profileName: {
     type: String,
