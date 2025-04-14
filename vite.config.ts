@@ -4,7 +4,7 @@ import { fileURLToPath, URL } from "url";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/nome-do-repo/",
+  base: "my-portfolio/",
   plugins: [vue()],
   assetsInclude: ["**/*.JPG"],
   resolve: {

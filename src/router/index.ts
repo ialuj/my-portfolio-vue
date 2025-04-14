@@ -26,7 +26,7 @@ const routes = [
   { path: "/projetos", component: Projects },
   { path: "/portfolios", component: Portfolios },
   { path: "/contactos", component: Contacts },
-  { path: "/referencias", References },
+  { path: "/referencias", component: References },
   { path: "/redes", component: SocialMedias },
   { path: "/sobre-nos", component: About },
   {

@@ -8,7 +8,7 @@
       <ul class="pagination justify-content-center mb-0">
         <li
           class="page-item"
-          v-for="(job, index) in jobs"
+          v-for="(_, index) in jobs"
           :key="index"
           :class="{ active: currentStep === index }"
         >

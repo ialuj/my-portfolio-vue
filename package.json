@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://ialuj.github.io/nome-do-repo",
+  "homepage": "https://github.com/ialuj/my-portfolio.git",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
