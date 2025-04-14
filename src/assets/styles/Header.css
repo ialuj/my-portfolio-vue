@@ -1,0 +1,27 @@
+.navbar-brand img {
+  max-height: 50px;
+}
+
+body {
+  padding-top: 40px;
+}
+
+img.navbar-brand {
+  max-width: 100%;
+}
+
+.nav-link {
+  font-weight: 500;
+}
+
+.header-link {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.header-link:hover {
+  color: #adb5bd; /* Cinza claro bonito */
+  text-decoration: underline;
+  transform: scale(1.05);
+}

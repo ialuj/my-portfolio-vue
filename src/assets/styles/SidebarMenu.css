@@ -1,0 +1,42 @@
+nav {
+  background-color: #343a40;
+  height: 100vh;
+}
+
+a.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu {
+  width: 250px;
+  background-color: #1c1f23; /* cinzento bonito */
+  min-height: 100vh;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.sidebar-menu .nav-link {
+  font-weight: 500;
+  padding: 10px 10px;
+  border-radius: 4px;
+  cursor: pointer; /* 👈 adiciona o ícone de mão */
+}
+
+.sidebar-menu .nav-link.active,
+.sidebar-menu .nav-link:hover {
+  background-color: #444;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-pills {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Assegura que as opções comecem à esquerda */
+  align-items: flex-start; /* Alinha à esquerda */
+}
+
+.nav-link {
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
