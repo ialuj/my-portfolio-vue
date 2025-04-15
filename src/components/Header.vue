@@ -17,7 +17,7 @@
       class="container-fluid d-flex justify-content-between align-items-center"
     >
       <!-- Logo à esquerda -->
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="/my-portfolio-vue/">
         <img
           :src="logoImage"
           alt="Professional Portfolio"
