@@ -13,14 +13,11 @@
 
 <script lang="ts" setup>
 defineProps({
-  profileImage: {
-    type: String,
-    default: "/assets/images/profile.JPG", // Caminho padrão da imagem
-  },
   profileName: {
     type: String,
     default: "José Julai Ritsure", // Nome padrão
   },
 });
+import profileImage from "@/assets/images/profile.jpg";
 import "../assets/styles/ProfileCard.css";
 </script>

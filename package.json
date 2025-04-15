@@ -1,9 +1,9 @@
 {
-  "name": "my-portfolio",
+  "name": "my-portfolio-vue",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/ialuj/my-portfolio.git",
+  "homepage": "https://github.com/ialuj/my-portfolio-vue.git",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",

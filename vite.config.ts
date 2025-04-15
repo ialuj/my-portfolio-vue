@@ -4,9 +4,9 @@ import { fileURLToPath, URL } from "url";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "my-portfolio/",
+  base: "/my-portfolio-vue/",
   plugins: [vue()],
-  assetsInclude: ["**/*.JPG"],
+  assetsInclude: ["**/*.JPG", "**/*.jpg", "**/*.png", "**/*.PNG"],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),

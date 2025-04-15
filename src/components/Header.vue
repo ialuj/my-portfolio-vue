@@ -47,11 +47,6 @@
 </template>
 
 <script lang="ts" setup>
-defineProps({
-  logoImage: {
-    type: String,
-    default: "/assets/images/logo.png",
-  },
-});
+import logoImage from "@/assets/images/logo.png";
 import "../assets/styles/Header.css";
 </script>
