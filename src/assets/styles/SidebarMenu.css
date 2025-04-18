@@ -1,42 +1,80 @@
-nav {
-  background-color: #343a40;
-  height: 100vh;
+/* Estilo base */
+.sidebar-menu,
+.sidebar-mobile {
+  background-color: #2a2d34;
+  color: white;
+  box-sizing: border-box;
+  z-index: 1100;
 }
 
-a.nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+/* DESKTOP (>=768px): menu vertical lateral esquerda */
+@media (min-width: 768px) {
+  .sidebar-menu {
+    position: fixed;
+    top: 108px; /* altura do cabeçalho */
+    left: 0;
+    width: 240px;
+    height: calc(100vh - 70px) !important;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sidebar-menu .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+  }
+
+  .sidebar-menu .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.375rem;
+  }
 }
 
-.sidebar-menu {
-  width: 250px;
-  background-color: #1c1f23; /* cinzento bonito */
-  min-height: 100vh;
-  position: relative;
-  flex-shrink: 0;
-}
+/* MOBILE (<768px): menu horizontal fixo no topo */
+@media (max-width: 767px) {
+  .sidebar-mobile {
+    position: fixed !important;
+    top: 70px; /* logo abaixo do cabeçalho */
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: #2a2d34;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
 
-.sidebar-menu .nav-link {
-  font-weight: 500;
-  padding: 10px 10px;
-  border-radius: 4px;
-  cursor: pointer; /* 👈 adiciona o ícone de mão */
-}
+  .sidebar-horizontal ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
 
-.sidebar-menu .nav-link.active,
-.sidebar-menu .nav-link:hover {
-  background-color: #444;
-  color: #fff;
-  text-decoration: none;
-}
+  .sidebar-horizontal .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.75rem;
+    text-decoration: none;
+    color: white;
+  }
 
-.nav-pills {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Assegura que as opções comecem à esquerda */
-  align-items: flex-start; /* Alinha à esquerda */
-}
-
-.nav-link {
-  padding: 10px;
-  transition: background-color 0.3s ease;
+  .sidebar-horizontal .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.375rem;
+  }
 }

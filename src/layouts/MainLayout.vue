@@ -1,16 +1,18 @@
 <template>
-  <div class="d-flex flex-column vh-100">
+  <div class="d-flex flex-column min-vh-100">
     <!-- Cabeçalho -->
-    <Header />
+    <Header @toggle-sidebar="toggleSidebar" />
 
-    <div class="d-flex flex-grow-1 mt-5 w-100">
-      <!-- Menu Lateral fixo à esquerda -->
-      <div class="col-3 p-0">
-        <SidebarMenu />
-      </div>
+    <div class="d-flex flex-grow-1">
+      <!-- Menu Lateral -->
+      <SidebarMenu
+        :isVisible="showSidebar"
+        :isMobile="!isLargeScreen"
+        :onClose="() => (showSidebar = false)"
+      />
 
       <!-- Conteúdo Principal -->
-      <main class="col-9 p-4 overflow-auto">
+      <main class="flex-grow-1 col-12 col-md-9 p-4 overflow-auto">
         <router-view />
       </main>
     </div>
@@ -21,8 +23,31 @@
 </template>
 
 <script lang="ts" setup>
-import "../assets/styles/App.css";
-import Footer from "../components/Footer.vue";
+import { ref, onMounted } from "vue";
 import Header from "../components/Header.vue";
 import SidebarMenu from "../components/SidebarMenu.vue";
+import Footer from "../components/Footer.vue";
+
+const showSidebar = ref(false);
+const isLargeScreen = ref(window.innerWidth >= 768);
+
+const toggleSidebar = () => {
+  showSidebar.value = !showSidebar.value;
+};
+
+onMounted(() => {
+  const handleResize = () => {
+    isLargeScreen.value = window.innerWidth >= 768;
+
+    // Mostrar ou esconder sidebar baseado na tela
+    if (isLargeScreen.value) {
+      showSidebar.value = true;
+    } else {
+      showSidebar.value = true; // <- deixar visível no mobile também
+    }
+  };
+
+  handleResize();
+  window.addEventListener("resize", handleResize);
+});
 </script>

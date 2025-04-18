@@ -1,67 +1,63 @@
 <template>
-  <aside class="sidebar-menu d-flex flex-column p-3 text-white">
-    <ProfileCard />
-    <ul class="nav nav-pills flex-column mb-auto justify-left">
-      <li>
-        <router-link to="/info" class="nav-link text-white">
-          Informações Pessoais
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/educacao" class="nav-link text-white">
-          Habilitações Literárias
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/idiomas" class="nav-link text-white">
-          Idiomas
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/hard-skills" class="nav-link text-white">
-          Hard Skills
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/soft-skills" class="nav-link text-white">
-          Soft Skills
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/experiencia" class="nav-link text-white">
-          Experiência Profissional
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/projetos" class="nav-link text-white">
-          Projetos
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/portfolios" class="nav-link text-white">
-          Portfólios
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/contactos" class="nav-link text-white">
-          Contactos
-        </router-link>
-      </li>
-      <!--<li>
-        <router-link to="/referencias" class="nav-link text-white">
-          Referências
-        </router-link>
-      </li>-->
-      <li>
-        <router-link to="/redes" class="nav-link text-white">
-          Redes Sociais
-        </router-link>
-      </li>
-    </ul>
-  </aside>
+  <Transition name="slide">
+    <aside
+      v-show="isVisible"
+      :class="[
+        'text-white',
+        isMobile ? 'sidebar-mobile sidebar-horizontal' : 'sidebar-menu',
+      ]"
+    >
+      <ProfileCard v-if="!isMobile" class="mb-4" />
+
+      <ul>
+        <li v-for="item in menuItems" :key="item.to">
+          <router-link
+            :to="item.to"
+            class="nav-link text-white"
+            @click="handleClick"
+          >
+            <i :class="['bi', item.icon, 'fs-5']"></i>
+            <span v-if="!isMobile">{{ item.label }}</span>
+          </router-link>
+        </li>
+      </ul>
+    </aside>
+  </Transition>
 </template>
 
 <script lang="ts" setup>
-import "../assets/styles/SidebarMenu.css";
 import ProfileCard from "./ProfileCard.vue";
+import "../assets/styles/SidebarMenu.css";
+
+// Props
+const props = defineProps<{
+  isVisible: boolean;
+  isMobile: boolean;
+  onClose?: () => void;
+}>();
+
+// Menu data
+const menuItems = [
+  { to: "/info", label: "Informações Pessoais", icon: "bi-person" },
+  { to: "/educacao", label: "Habilitações Literárias", icon: "bi-mortarboard" },
+  { to: "/idiomas", label: "Idiomas", icon: "bi-translate" },
+  { to: "/hard-skills", label: "Hard Skills", icon: "bi-tools" },
+  { to: "/soft-skills", label: "Soft Skills", icon: "bi-emoji-smile" },
+  {
+    to: "/experiencia",
+    label: "Experiência Profissional",
+    icon: "bi-briefcase",
+  },
+  { to: "/projetos", label: "Projetos", icon: "bi-kanban" },
+  { to: "/portfolios", label: "Portfólios", icon: "bi-images" },
+  { to: "/contactos", label: "Contactos", icon: "bi-envelope" },
+  { to: "/redes", label: "Redes Sociais", icon: "bi-share" },
+];
+
+// Fecha o menu em mobile após clique
+function handleClick() {
+  if (props.isMobile && props.onClose) {
+    props.onClose();
+  }
+}
 </script>
