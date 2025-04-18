@@ -3,7 +3,7 @@
     <!-- Cabeçalho -->
     <Header @toggle-sidebar="toggleSidebar" />
 
-    <div class="d-flex flex-grow-1">
+    <div class="d-flex flex-grow-1 flex-wrap">
       <!-- Menu Lateral -->
       <SidebarMenu
         :isVisible="showSidebar"
